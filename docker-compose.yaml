@@ -4,5 +4,21 @@ networks:
 volumes:
   mysql:    # docker volume create mysql
 services:   # docker run
-  image:
-  
+  mysql:   
+    image: jagadeesh3373/mysql:v1
+    container_name: mysql   # name : mysql  
+    volumes:
+    - mysql:/var/lib/mysql    # -v mysql:/var/lib/mysql
+  backend:
+    image: jagadeesh3373/backend:v1
+    container_name: backend
+    depends_on:
+    - mysql
+  frontend:
+    image: jagadeesh3373/frontend:v1
+    container_name: frontend
+    ports:
+    - 80:80
+    depends_on:
+    - backend
+
