@@ -5,7 +5,7 @@ COPY *.js .
 RUN npm install
 
 
-FROM node:20.18.0-alphine3.20
+FROM node:20.18.0-alpine3.20
 EXPOSE 8080
 ENV DB_HOST="mysql"
 RUN addgroup -S expense && adduser -S expense -G expense \
