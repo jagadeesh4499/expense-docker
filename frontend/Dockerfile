@@ -1,5 +1,4 @@
 FROM nginx:mainline-alpine3.20-slim
-COPY code /usr/share/nginx/html
 RUN rm -rf /etc/nginx/nginx.conf && \
     rm -rf /etc/nginx/conf.d/default.conf && \
     mkdir -p /var/cache/nginx/client_temp && \
